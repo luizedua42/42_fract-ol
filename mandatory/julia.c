@@ -6,11 +6,11 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:28:10 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 18:37:53 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractollib.h"
+#include "fractollib_bonus.h"
 
 void	julia_init(t_fractol *frac, float kr, float ki)
 {

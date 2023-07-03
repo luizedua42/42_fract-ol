@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse_zoom.c                                       :+:      :+:    :+:   */
+/*   mouse_zoom_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 18:05:42 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 15:21:01 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractollib.h"
+#include "fractollib_bonus.h"
 
 int mouse_zoom(int key,int x, int y, t_mlx *param)
 {

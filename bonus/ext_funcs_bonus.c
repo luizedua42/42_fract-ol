@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ext_funcs.c                                        :+:      :+:    :+:   */
+/*   ext_funcs_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:32:33 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 18:14:22 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/03 19:15:06 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractollib.h"
+#include "fractollib_bonus.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

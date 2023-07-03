@@ -6,11 +6,11 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 18:21:46 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/01 18:22:14 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractollib.h"
+#include "fractollib_bonus.h"
 
 int	key_press(int kode, t_mlx *param)
 {

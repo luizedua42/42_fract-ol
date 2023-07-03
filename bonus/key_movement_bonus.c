@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_movement.c                                     :+:      :+:    :+:   */
+/*   key_movement_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 16:24:48 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 12:06:12 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractollib.h"
+#include "fractollib_bonus.h"
 
 void	key_zoom(int key, t_mlx *param)
 {

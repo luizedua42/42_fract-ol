@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractal_draw.c                                     :+:      :+:    :+:   */
+/*   fractal_draw_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:47:04 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 15:20:25 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractollib.h"
+#include "fractollib_bonus.h"
 
 int	draw_fracts(t_mlx *mlx)
 {
