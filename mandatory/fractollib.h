@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:51:28 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/01 19:14:08 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/03 18:30:00 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //PARAMS DEFINE
 # define H 800
 # define W 800
-# define MAX_ITER 100
+# define MAX_ITER 300
 
 //LIBRARIES INCLUDE
 # include <X11/X.h>
@@ -40,6 +40,7 @@ typedef struct s_fractol
 	float		mid_r;
 	int			x;
 	int			y;
+	int			fract;
 }				t_fractol;
 
 typedef struct s_mlx
@@ -51,12 +52,11 @@ typedef struct s_mlx
 	int			bpp;
 	int			size_line;
 	int			endian;
-	t_fractol	*fract;
+	t_fractol	fract;
 }				t_mlx;
 
 //FUNCS DECLARATION
 void			mandelbrot_init(t_fractol *frac);
-void			init_julia(t_fractol *frac);
 int				draw_fracts(t_mlx *mlx);
 int				key_press(int kode, t_mlx *param);
 void			fractal_init(t_fractol *frac);
@@ -65,6 +65,13 @@ void			mandelbrot(t_mlx *mlx, float cr, float ci);
 void			julia(t_mlx *mlx, float cr, float ci);
 int				close_win(t_mlx *param);
 int				mouse_zoom(int key,int x, int y, t_mlx *param);
+int				ft_strcmp(const char *s1, const char *s2);
+t_fractol		fractal_check(int count, char **arg);
+void			init_mlx(t_mlx *mlx);
+float			ft_atof(char *str);
+int				coord_checker(char *str);
+void			julia_init(t_fractol *frac, float kr, float ki);
+void			printerror(void);
 
 
 

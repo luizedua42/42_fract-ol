@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zoom.c                                             :+:      :+:    :+:   */
+/*   mouse_zoom.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 18:05:42 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/01 18:16:02 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/03 15:21:01 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractollib.h"
 
-int mouse_zoom(int key, t_mlx *param)
+int mouse_zoom(int key,int x, int y, t_mlx *param)
 {
-	int	x;
-	int	y;
+	x = param->fract.x + 1;
+	y = param->fract.y + 1;
 	
-	x = 1;
-	y = 1;
-	if (key == 4 && x)
+	if (key == 4)
 	{
-		param->fract->min_r -= param->fract->min_r * 0.115;
-		param->fract->max_r -= param->fract->max_r * 0.115;
-		param->fract->min_i -= param->fract->min_i * 0.115;
-		param->fract->max_i -= param->fract->max_i * 0.115;
+		param->fract.min_r -= param->fract.min_r * 0.115;
+		param->fract.max_r -= param->fract.max_r * 0.115;
+		param->fract.min_i -= param->fract.min_i * 0.115;
+		param->fract.max_i -= param->fract.max_i * 0.115;
 	}
-	else if (key == 5 && y)
+	else if (key == 5)
 	{
-		param->fract->min_r += param->fract->min_r * 0.115;
-		param->fract->max_r += param->fract->max_r * 0.115;
-		param->fract->min_i += param->fract->min_i * 0.115;
-		param->fract->max_i += param->fract->max_i * 0.115;
+		param->fract.min_r += param->fract.min_r * 0.115;
+		param->fract.max_r += param->fract.max_r * 0.115;
+		param->fract.min_i += param->fract.min_i * 0.115;
+		param->fract.max_i += param->fract.max_i * 0.115;
 	}
+	draw_fracts(param);
 	return (1);
 }
+
