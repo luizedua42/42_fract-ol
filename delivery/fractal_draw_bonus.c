@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractal_draw.c                                     :+:      :+:    :+:   */
+/*   fractal_draw_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:47:04 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:36:05 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int	draw_fracts(t_mlx *mlx)
 {
-	float	pr;
-	float	pi;
+	double	pr;
+	double	pi;
 
+	mlx_clear_window(mlx->p_mlx, mlx->p_win);
 	mlx->fract.y = -1;
 	while (++mlx->fract.y < H)
 	{

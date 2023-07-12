@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractollib.h                                       :+:      :+:    :+:   */
+/*   fractollib_bonus.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:51:28 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 18:30:00 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:24:32 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOLLIB_H
-# define FRACTOLLIB_H
+#ifndef FRACTOLLIB_BONUS_H
+# define FRACTOLLIB_BONUS_H
 
 //PARAMS DEFINE
 # define H 800
 # define W 800
-# define MAX_ITER 300
+# define MAX_ITER 200
 
 //LIBRARIES INCLUDE
 # include <X11/X.h>
@@ -27,17 +27,17 @@
 //STRUCTS CREATION
 typedef struct s_fractol
 {
-	float		min_r;
-	float		max_r;
-	float		min_i;
-	float		max_i;
-	float		k_r;
-	float		k_i;
+	double		min_r;
+	double		max_r;
+	double		min_i;
+	double		max_i;
+	double		k_r;
+	double		k_i;
 	int			draw;
-	float		pi;
-	float		pr;
-	float		mid_i;
-	float		mid_r;
+	double		pi;
+	double		pr;
+	double		mid_i;
+	double		mid_r;
 	int			x;
 	int			y;
 	int			fract;
@@ -53,6 +53,8 @@ typedef struct s_mlx
 	int			size_line;
 	int			endian;
 	t_fractol	fract;
+	int			colors[3];
+	int			c;
 }				t_mlx;
 
 //FUNCS DECLARATION
@@ -61,18 +63,18 @@ int				draw_fracts(t_mlx *mlx);
 int				key_press(int kode, t_mlx *param);
 void			fractal_init(t_fractol *frac);
 void			create_fract(t_mlx *params, int color, int x, int y);
-void			mandelbrot(t_mlx *mlx, float cr, float ci);
-void			julia(t_mlx *mlx, float cr, float ci);
+void			mandelbrot(t_mlx *mlx, double cr, double ci);
+void			julia(t_mlx *mlx, double cr, double ci);
 int				close_win(t_mlx *param);
-int				mouse_zoom(int key,int x, int y, t_mlx *param);
+int				mouse_zoom(int key, int x, int y, t_mlx *param);
 int				ft_strcmp(const char *s1, const char *s2);
 t_fractol		fractal_check(int count, char **arg);
 void			init_mlx(t_mlx *mlx);
-float			ft_atof(char *str);
+double			ft_atof(char *str);
 int				coord_checker(char *str);
-void			julia_init(t_fractol *frac, float kr, float ki);
+void			julia_init(t_fractol *frac, double kr, double ki);
 void			printerror(void);
-
-
+void			init_color(t_mlx *mlx);
+double			ft_abs(double n);
 
 #endif

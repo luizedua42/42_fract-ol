@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract-ol.c                                         :+:      :+:    :+:   */
+/*   fract-ol_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:50:45 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/10 22:06:37 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@ void	init_mlx(t_mlx *mlx)
 {
 	mlx->p_mlx = mlx_init();
 	mlx->p_win = mlx_new_window(mlx->p_mlx, H, W, "fract-ol");
-	mlx_do_key_autorepeaton(mlx->p_mlx);
 	mlx->p_img = mlx_new_image(mlx->p_mlx, H, W);
-	mlx->i_add = mlx_get_data_addr(mlx->p_img, &mlx->bpp, &mlx->size_line, \
+	mlx->i_add = mlx_get_data_addr(mlx->p_img, &mlx->bpp, &mlx->size_line,
 			&mlx->endian);
 }
 
-int	close_win(t_mlx *param)
+int	close_win(t_mlx *mlx)
 {
-	mlx_destroy_window(param->p_mlx, param->p_win);
+	mlx_destroy_image(mlx->p_mlx, mlx->p_img);
+	mlx_destroy_window(mlx->p_mlx, mlx->p_win);
+	mlx_destroy_display(mlx->p_mlx);
+	free(mlx->p_mlx);
 	exit(0);
 }
 
@@ -43,13 +45,14 @@ void	printerror(void)
 	write(1, ":Options:\n", 10);
 	write(1, "Mandelbrot\n", 12);
 	write(1, "Julia\n", 7);
-	write(1, "for julia you will need to input te coordinates for the real(re) and imaginary(im) points\n",90);
+	write(1, "for julia you will need to input te coordinates for the \
+		real(re) and imaginary(im) points\n", 90);
 	write(1, "range: from -2 to 2\n", 20);
 	write(1, "e.g:\n", 5);
-	write(1, "Julia -0.8 0.256\n",17);
+	write(1, "Julia -0.8 0.256\n", 17);
 	exit(1);
 }
-#include <stdio.h>
+
 t_fractol	fractal_check(int count, char **arg)
 {
 	t_fractol	fract;
@@ -67,6 +70,9 @@ t_fractol	fractal_check(int count, char **arg)
 		julia_init(&fract, ft_atof(arg[2]), ft_atof(arg[3]));
 	}
 	else
+	{
 		printerror();
+		fract = (t_fractol){0};
+	}
 	return (fract);
 }

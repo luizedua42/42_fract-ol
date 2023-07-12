@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 16:24:48 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:32:44 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,12 @@ int	key_press(int kode, t_mlx *param)
 	else if (kode == XK_Up || kode == XK_Down || \
 				kode == XK_Left || kode == XK_Right)
 		move_fract(kode, param);
-	draw_fracts(param);
+	else if (kode == 'c')
+	{
+		if (param->c == 2)
+			param->c = 0;
+		else
+			param->c++;
+	}
 	return (0);
 }

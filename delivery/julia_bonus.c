@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   julia_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:28:10 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:35:19 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractollib_bonus.h"
 
-void	julia_init(t_fractol *frac, float kr, float ki)
+void	julia_init(t_fractol *frac, double kr, double ki)
 {
 	if ((kr < -2 || kr > 2) || (ki < -2 || ki > 2))
 		printerror();
 	frac->min_r = -2.0;
 	frac->max_r = 2.0;
 	frac->min_i = -2.0;
-	frac->max_i = frac->min_i + (frac->max_r - frac->min_r) * H / W;	
+	frac->max_i = frac->min_i + (frac->max_r - frac->min_r) * H / W;
 	frac->k_i = ki;
 	frac->k_r = kr;
 }
 
-void	julia(t_mlx *mlx, float cr, float ci)
+void	julia(t_mlx *mlx, double cr, double ci)
 {
 	int		n;
-	float	tmp;
+	double	tmp;
 
 	n = -1;
 	while (++n < MAX_ITER)
@@ -41,6 +41,6 @@ void	julia(t_mlx *mlx, float cr, float ci)
 	if (n == MAX_ITER)
 		create_fract(mlx, 0x0, mlx->fract.x, mlx->fract.y);
 	else
-		create_fract(mlx, 0xff11fa * n , mlx->fract.x, \
-				mlx->fract.y);
+		create_fract(mlx, mlx->colors[mlx->c] * n * 5, \
+			mlx->fract.x, mlx->fract.y);
 }

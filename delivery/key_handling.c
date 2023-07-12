@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   key_handling.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 14:48:39 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
+/*   Created: 2023/07/01 18:21:46 by luizedua          #+#    #+#             */
+/*   Updated: 2023/07/12 14:55:13 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractollib_bonus.h"
+#include "fractollib.h"
 
-int	main(int argc, char *argv[])
+int	key_press(int kode, t_mlx *param)
 {
-	t_mlx	mlx_point;
-	
-	mlx_point.fract = fractal_check(argc, argv);
-	init_mlx(&mlx_point);
-	mlx_hook(mlx_point.p_win, 17, 0, close_win, &mlx_point);
-	mlx_hook(mlx_point.p_win, KeyPress, KeyPressMask, &key_press, &mlx_point);
-	mlx_mouse_hook(mlx_point.p_win, &mouse_zoom, &mlx_point);
-	draw_fracts(&mlx_point);
-	mlx_loop(mlx_point.p_mlx);
+	if (kode == XK_Escape)
+		close_win(param);
 	return (0);
 }

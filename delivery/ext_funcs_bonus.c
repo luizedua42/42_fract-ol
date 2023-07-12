@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ext_funcs.c                                        :+:      :+:    :+:   */
+/*   ext_funcs_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 14:32:33 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/03 19:15:46 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:34:05 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-float ft_atof(char *str)
+double	ft_atof(char *str)
 {
-	float	res;
-	int	sign;
-	int deccount;
+	double	res;
+	int		sign;
+	int		deccount;
 
 	res = 0;
 	sign = 1;
@@ -47,10 +47,7 @@ float ft_atof(char *str)
 	if (*str == '-' || *str == '+')
 		str++;
 	while (*str >= '0' && *str <= '9')
-	{
-		res = res * 10 + *str - '0';
-		str++;
-	}
+		res = res * 10 + *str++ - '0';
 	if (*str == '.')
 		str++;
 	while (*str >= '0' && *str <= '9')
@@ -59,13 +56,12 @@ float ft_atof(char *str)
 		deccount = deccount * 10;
 		str++;
 	}
-	res = res / deccount * sign;
-	return (res);
+	return (res = res / deccount * sign);
 }
 
 int	coord_checker(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] == ' ')
@@ -81,6 +77,21 @@ int	coord_checker(char *str)
 	while (str[i] == ' ')
 		i++;
 	if (str[i] == '\0')
-		return(1);
-	return(0);
+		return (1);
+	return (0);
+}
+
+void	init_color(t_mlx *mlx)
+{
+	mlx->c = 0;
+	mlx->colors[0] = 0x010000;
+	mlx->colors[1] = 65537;
+	mlx->colors[2] = 773;
+}
+
+double	ft_abs(double n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
 }
